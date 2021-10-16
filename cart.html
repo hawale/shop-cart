@@ -1,243 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet" />
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="https://cdn2.iconfinder.com/data/icons/social-icons-circular-color/512/flipkart-128.png" />
-    <title>Flipkart</title>
-    <style>
-      * {
-        font-family: "Roboto", sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container-fluid w-100" style="min-height: 100vh;">
-      <!-- Nav bar -->
-      <nav class="navbar navbar-light bg-info w-100 rounded-3">
-        <div class="container-fluid">
-          <a class="navbar-brand">
-            <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fk-plus_3b0baa.png" height="40px" alt=""
-          /></a>
-          <form id="searchForm" class="d-flex w-50" action="javascript:void(0)">
-            <div class="input-group">
-              <select id="selectId" class="form-select w-25"></select>
-              <input class="form-control w-50" type="search" id="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-warning" type="submit" id="srchBtn"><i class="bi bi-search"></i></button>
-            </div>
-          </form>
-          <button
-            type="button input-group"
-            id="cartBtn"
-            class="btn btn-primary position-relative"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            <i class="bi bi-cart-check"></i>
-            Cart
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">
-              0
-            </span>
-          </button>
-        </div>
-      </nav>
-      <!-- card -->
-      <div id="cards" class="container d-flex justify-content-evenly flex-wrap"></div>
-    </div>
+    /> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <link rel="shortcut icon"
+    href="https://cdn2.iconfinder.com/data/icons/social-icons-circular-color/512/flipkart-128.png" />
+  <link rel="stylesheet" href="style.css">
+  <title>Flipkart</title>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Cart Item</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+</head>
+
+<body>
+  <div class="container-fluid w-100" style="min-height: 100vh;">
+    <!-- Nav bar -->
+    <nav class="navbar navbar-light bg-info w-100 rounded-3">
+      <div class="container-fluid">
+        <a class="navbar-brand">
+          <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fk-plus_3b0baa.png" height="40px"
+            alt="" /></a>
+        <form id="searchForm" class="d-flex w-50" action="javascript:void(0)">
+          <div class="input-group">
+            <select id="selectId" class="form-select w-25"></select>
+            <input class="form-control w-50" type="search" id="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-warning" type="submit" id="srchBtn"><i class="bi bi-search"></i></button>
           </div>
-          <div class="modal-body">
-            <!-- On tables -->
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Preview</th>
-                </tr>
-              </thead>
-              <tbody id="tbody"></tbody>
-              <tfoot>
-                <tr>
-                  <th>Total Price</th>
-                  <th id="tpc"></th>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-warning">Proceed to Pay</button>
-          </div>
+        </form>
+        <button type="button input-group" id="cartBtn" class="btn btn-primary position-relative" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          <i class="bi bi-cart-check"></i>
+          Cart
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">
+            0
+          </span>
+        </button>
+      </div>
+    </nav>
+    <!-- card -->
+    <div id="cards" class="container d-flex justify-content-evenly flex-wrap"></div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cart Item</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- On tables -->
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+            <tfoot>
+              <tr>
+                <th>Total Price</th>
+                <th id="tpc"></th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning">Proceed to Pay</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Jquery -->
-    <script>
-      // main function
-      $(function () {
-        function getCat() {
-          fetch("http://fakestoreapi.com/products/categories")
-            .then((response) => response.json())
-            .then((data) => {
-              data.unshift("All");
-              $.each(data, function (key, value) {
-                $(`<option>${value.toUpperCase()}</option>`).appendTo("#selectId");
-              });
-            });
-        }
-        // Array
-        var cartItems = [];
-        var price = [];
+  <!-- Jquery -->
+  <script src="script.js">
 
-        // Cart item Data
-        function loadTable(cartItems) {
-          $("#tbody").html("");
-          $.each(cartItems, function (key, value) {
-            totalCal(cartItems.price);
-            $(`
-                  <tr class="table-primary">
-                    <th>${value.title}</th>
-                    <th>&#8377;${value.price}</th>
-                    <th><img src="${value.image}" width="200px" height="200px"></th>
-                    <th><button class="btn btn-danger rounded-circle" id="removeBtn" value=${key}><i class="bi bi-x-circle"></i></button></th>
-                    </tr>
-                    `).appendTo("#tbody");
-          });
-        }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
 
-        // Calculation Formula
-        function totalCal(price) {
-          $("#tfoot").html("");
-          let total = 0;
-          if (cartItems == "") {
-            $("#tpc").html(`&#8377; 00`);
-          } else {
-            $.each(price, function (key, value) {
-              total += parseFloat(value);
-              final = total.toFixed(2);
-              $("#tpc").html(`&#8377;${final}`);
-            });
-          }
-        }
-
-        // Add to Cart
-        $(document).on("click", "#btnAdd", function (event) {
-          var id = event.target.value;
-          fetch(`http://fakestoreapi.com/products/${id}`)
-            .then((response) => response.json())
-            .then((data) => {
-              cartItems.push(data);
-              price.push(data.price);
-              totalCal(price);
-
-              alert(`${data.title} is Added to cart`);
-              $("#cartCount").html(cartItems.length);
-              loadTable(cartItems);
-              removePd(cartItems);
-            });
-        });
-
-        // Remove Item From Cart
-        function removePd(cartItems) {
-          var id = 0;
-          $(document).on("click", "#removeBtn", function (event) {
-            var id = parseInt(event.target.value);
-            cartItems.splice(id, 1);
-            price.splice(id, 1);
-            totalCal(price);
-            loadTable(cartItems);
-          });
-        }
-
-        // Load products
-        function loadproducts(data) {
-          $.each(data, function (key, value) {
-            $(`
-                <div class ="card m-4 mb-3 p-2 w-25">
-                    <img src=${value.image} height="200" class="card-img-top">
-                    <div class ="card-header" style="height:150px">
-                    <h5>${value.title}</h5>
-                    </div>
-                    <div class="card-body text-success">
-                    <h6 text->&#8377;${value.price}</h6>
-                    </div>
-                    <div class="card-footer">
-                        <button class ='btn btn-danger w-100' id="btnAdd" value=${value.id}> <span class="bi bi-cart4"> </span> Add to Cart</button>
-                     </div>
-                     </div>
-             `).appendTo("#cards");
-          });
-        }
-
-        // Get products Data
-        function getProducts() {
-          fetch("http://fakestoreapi.com/products")
-            .then((response) => response.json())
-            .then((data) => {
-              loadproducts(data);
-            });
-        }
-        getCat();
-        getProducts();
-
-        // Search Products
-
-        // Change Categories
-        $("#selectId").change(function (event) {
-          var catname = event.target.value.toLowerCase();
-          if (catname == "all") {
-            $("#cards").html("");
-            getProducts();
-          } else {
-            fetch(`http://fakestoreapi.com/products/category/${catname}`)
-              .then((response) => response.json())
-              .then((data) => {
-                $("#cards").html("");
-                loadproducts(data);
-              });
-          }
-        });
-
-        // Search Option
-        $(document).on("submit", "#searchForm", function (event) {
-          console.log("event.keyCode", event);
-          event.preventDefault();
-          var searchstring = $("#search").val().toLowerCase();
-          $(".card").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(searchstring) > -1);
-          });
-        });
-      });
-    </script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
 </html>
